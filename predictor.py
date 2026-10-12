@@ -45,25 +45,26 @@ st.title("Pelvic Organ Prolapse Predictor")
 # In[10]:
 
 
-age = st.number_input("Age:",min_value=0,max_value=100,value=55)
-BMI = st.number_input("BMI:",min_value=0,max_value=100,value=20)
-parity = st.number_input("Parity:",min_value=0,max_value=100,value=2)
-vd = st.number_input("VD:",min_value=0,max_value=100,value=1)
-cs = st.number_input("C/S:",min_value=0,max_value=100,value=1)
-mi = st.number_input("MISC:",min_value=0,max_value=100,value=55)
+st.sidebar.title("Survey Form")
+age = st.sidebar.number_input("Age:",min_value=0,max_value=100,value=55)
+BMI = st.sidebar.number_input("BMI:",min_value=0,max_value=100,value=20)
+parity = st.sidebar.number_input("Parity:",min_value=0,max_value=100,value=2)
+vd = st.sidebar.number_input("VD:",min_value=0,max_value=100,value=1)
+cs = st.sidebar.number_input("C/S:",min_value=0,max_value=100,value=1)
+mi = st.sidebar.number_input("MISC:",min_value=0,max_value=100,value=55)
 
 
 # In[11]:
 
 
-htn = st.selectbox("HTN:",options=[0,1],format_func=lambda x:"是" if x==1 else "否")
-dm = st.selectbox("DM:",options=[0,1],format_func=lambda x:"是" if x==1 else "否")
-zgjl = st.selectbox("UFs:",options=[0,1],format_func=lambda x:"是" if x==1 else "否")
-opl = st.selectbox("OPL:",options=[0,1],format_func=lambda x:"是" if x==1 else "否")
-sui = st.selectbox("SUI:",options=[0,1],format_func=lambda x:"是" if x==1 else "否")
-ST = st.selectbox("St:",options=[0,1],format_func=lambda x:"是" if x==1 else "否")
-vl = st.selectbox("VL:",options=[0,1],format_func=lambda x:"是" if x==1 else "否")
-gxb = st.selectbox("CHD:",options=[0,1],format_func=lambda x:"是" if x==1 else "否")
+htn = st.sidebar.selectbox("HTN:",options=[0,1],format_func=lambda x:"Yes" if x==1 else "NO")
+dm = st.sidebar.selectbox("DM:",options=[0,1],format_func=lambda x:"Yes" if x==1 else "NO")
+zgjl = st.sidebar.selectbox("UFs:",options=[0,1],format_func=lambda x:"Yes" if x==1 else "NO")
+opl = st.sidebar.selectbox("OPL:",options=[0,1],format_func=lambda x:"Yes" if x==1 else "NO")
+sui = st.sidebar.selectbox("SUI:",options=[0,1],format_func=lambda x:"Yes" if x==1 else "NO")
+ST = st.sidebar.selectbox("St:",options=[0,1],format_func=lambda x:"Yes" if x==1 else "NO")
+vl = st.sidebar.selectbox("VL:",options=[0,1],format_func=lambda x:"Yes" if x==1 else "NO")
+gxb = st.sidebar.selectbox("CHD:",options=[0,1],format_func=lambda x:"Yes" if x==1 else "NO")
 
 
 # In[12]:
