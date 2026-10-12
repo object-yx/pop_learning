@@ -9,7 +9,7 @@ import joblib
 import numpy as np
 import pandas as pd
 import shap
-import matplotlib as plt
+import matplotlib.pyplot as plt
 
 
 # In[5]:
