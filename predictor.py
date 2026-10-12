@@ -87,27 +87,23 @@ if st.button("Predict"):
   with tab1:
     predicted_class = model.predict(features)[0]
     predicted_proba = model.predict_proba(features)[0]
-    st.write(f"The prediction result for pelvic organ prolapse is:{predicted_class}(1:Prolapse,0:Normal)")
-    st.write(f"The likelihood of pelvic organ prolapse is:{predicted_proba}")
+    st.write(f"The prediction result for pelvic organ prolapse is:  {predicted_class}(1:Prolapse,0:Normal)")
+    st.write(f"The likelihood of pelvic organ prolapse is:  {predicted_proba}")
     probability = predicted_proba[predicted_class]*100
     if predicted_class == 1:
         advice = (f"High risk"
-                  f"The likelihood of pelvic organ prolapse is{probability:1f}%")
+                  f"The likelihood of pelvic organ prolapse is  {probability:1f}%")
     else:
         advice = (f"Low risk"
-                  f"The likelihood of pelvic organ prolapse is{probability:1f}%")
+                  f"The likelihood of pelvic organ prolapse is  {probability:1f}%")
     st.write(advice)
   with tab2:
     st.subheader("SHAP")
     explainer_shap = shap.TreeExplainer(model)
     shap_values = explainer_shap.shap_values(pd.DataFrame([feature_values], columns = feature_names))
-    if predicted_class == 1:
-        shap.force_plot(explainer_shap.expected_value, shap_values[1],pd.DataFrame([feature_names], columns = feature_names),matplotlib=True)
-    else:
-        shap.force_plot(explainer_shap.expected_value, shap_values[0],pd.DataFrame([feature_names], columns = feature_names),matplotlib=True)
-    plt.savefig("shap_force_plot.png",bbox_inches="tight",dpi=1200)
+    shap.force_plot(explainer_shap.expected_value, shap_values[0],pd.DataFrame([feature_values],columns=feature_names),matplotlib=True)
+    matplotlib.pyplot.savefig("shap_force_plot.png",bbox_inches="tight",dpi=1200)
     st.image("shap_force_plot.png",caption="SHAP Force Plot Explanation")
-
 
 # In[ ]:
 
